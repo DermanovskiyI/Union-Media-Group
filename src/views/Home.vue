@@ -14,6 +14,7 @@
         </div>
         <user-list
             :users="user"
+            :selectUser="selectUser"
             @handleSelect="handleSelect"
         />
     </div>
@@ -34,8 +35,14 @@ export default {
       }, {
         id: 2,
         name: 'Петя',
-      }], // В массиве может быть от 2 пользователей, все с уникальными id > 0
-      selectUser: 0, // id выбранного пользователя. 0 если не выбрано
+      }, {
+        id: 3,
+        name: 'Виталий',
+      }, {
+        id: 4,
+        name: 'Семен',
+      }],
+      selectUser: 0,
     };
   },
   computed: {
@@ -67,7 +74,21 @@ export default {
     margin-bottom: 20px;
     text-align: center;
 }
+.user__selected {
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.user__id {
+    padding-left: 10px;
+}
 .user__not-selected {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.user__not-selected-item {
+    display: flex;
+    text-decoration: line-through;
 }
 </style>

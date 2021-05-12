@@ -1,7 +1,10 @@
 <template>
     <ul class="user__list">
         <li class="user__item" v-for="user in users" :key="user.id">
-            <button class="user__btn" @click="handleSelect(user.id)">{{user.name}}</button>
+            <button class="user__btn" :class="selectUser === user.id ? 'user__btn--active' : ''"
+                @click="handleSelect(user.id)">
+                {{user.name}}
+            </button>
         </li>
 
     </ul>
@@ -12,6 +15,10 @@ export default {
     users: {
       type: Array,
       default: () => [],
+    },
+    selectUser: {
+      type: Number,
+      default: () => 0,
     },
   },
   methods: {
