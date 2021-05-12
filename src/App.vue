@@ -1,5 +1,5 @@
 <template>
- <div id="app">
+ <div class="wrapper">
    <router-view/>
  </div>
 
@@ -9,10 +9,9 @@
 body, html {
   height: 100%;
 }
-#app {
-  height: 100%;
+.wrapper {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

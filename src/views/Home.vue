@@ -1,14 +1,15 @@
 <template>
-    <div class="wrapper">
-        <div class="user">
-            <div class="user__selected" v-if="selectedUser">
-                <div class="user__name">{{selectedUser.name}}</div>
-                <div class="user__id">{{selectedUser.id}}</div>
+    <div class="container">
+        <div class="result">
+            <div class="result__selected" v-if="selectedUser">
+                <div class="result__name">{{selectedUser.name}}</div>
+                <div class="result__id">{{selectedUser.id}}</div>
             </div>
-            <ul class="user__not-selected">
-                <li class="user__not-selected-item" v-for="user in notSelectedUsers" :key="user.id">
-                    <div class="user__name">{{user.name}}</div>
-                    <div class="user__id">{{user.id}}</div>
+            <ul class="result__not-selected">
+                <li class="result__not-selected-item" v-for="user in notSelectedUsers"
+                    :key="user.id">
+                    <div class="result__name">{{user.name}}</div>
+                    <div class="result__id">{{user.id}}</div>
                 </li>
             </ul>
         </div>
@@ -70,24 +71,24 @@ export default {
 </script>
 
 <style lang="scss">
-.user {
+.result {
     margin-bottom: 20px;
     text-align: center;
 }
-.user__selected {
+.result__selected {
     display: flex;
     font-size: 20px;
     margin-bottom: 10px;
 }
-.user__id {
+.result__id {
     padding-left: 10px;
 }
-.user__not-selected {
+.result__not-selected {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.user__not-selected-item {
+.result__not-selected-item {
     display: flex;
     text-decoration: line-through;
 }
