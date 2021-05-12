@@ -1,17 +1,27 @@
 <template>
     <ul class="user__list">
-        <li class="user__item">
-            <button class="user__btn">Вася</button>
-        </li>
-        <li class="user__item">
-            <button class="user__btn user__btn--active">Вася</button>
-        </li>
-        <li class="user__item">
-            <button class="user__btn" type="button">Вася</button>
+        <li class="user__item" v-for="user in users" :key="user.id">
+            <button class="user__btn" @click="handleSelect(user.id)">{{user.name}}</button>
         </li>
 
     </ul>
 </template>
+<script>
+export default {
+  props: {
+    users: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  methods: {
+    handleSelect(userId) {
+      this.$emit('handleSelect', userId);
+    },
+  },
+};
+</script>
+
 <style lang="scss">
 .user__list {
     display: flex;

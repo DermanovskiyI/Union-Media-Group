@@ -1,7 +1,10 @@
 <template>
     <div class="wrapper">
-        <div class="user">Вася</div>
-        <user-list/>
+        <div class="user">{{selectUser}}</div>
+        <user-list
+        :users="user"
+        @handleSelect="handleSelect"
+        />
     </div>
 </template>
 
@@ -23,6 +26,15 @@ export default {
       }], // В массиве может быть от 2 пользователей, все с уникальными id > 0
       selectUser: 0, // id выбранного пользователя. 0 если не выбрано
     };
+  },
+  methods: {
+    handleSelect(userId) {
+      if (this.selectUser === userId) {
+        this.selectUser = 0;
+      } else {
+        this.selectUser = userId;
+      }
+    },
   },
 };
 </script>
